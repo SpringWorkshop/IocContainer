@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean name="location" class="workshop4.beans.Location">
+        <property name="province" value="the province"></property>
+        <property name="city" value="the city"></property>
+        <property name="address" value="the address"></property>
+    </bean>
+    <bean name="address" class="workshop4.beans.HomeAddress" parent="location">
+        <property name="postcode" value="710048"></property>
+    </bean>
+    <bean name="person" class="workshop4.beans.Person">
+        <property name="name" value="Alex Li"></property>
+        <property name="SID" value="12"></property>
+        <property name="address" ref="address"></property>
+    </bean>
+    <bean name="company" class="workshop4.beans.Company">
+        <property name="name" value="great company"></property>
+        <property name="location" ref="location"></property>
+        <property name="owner" ref="person"></property>
+    </bean>
+</beans>
